@@ -29,7 +29,7 @@ app.use(express.json());
 
 // Connexion à MongoDB
 mongoose
-  .connect(process.env.Mongo_URI, {
+  .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -41,7 +41,7 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET || "your-secret-key",
     store: Store.create({
-      mongoUrl: process.env.Mongo_URI, // Passe la chaîne de connexion MongoDB ici
+      mongoUrl: process.env.MONGO_URI, // Passe la chaîne de connexion MongoDB ici
       mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true },
     }),
     resave: true,
